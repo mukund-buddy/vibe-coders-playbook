@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Vibe Coder's Playbook — 10 rules for building with AI</title>
+  <meta name="description" content="A practical operating system for building software with AI: 10 honest rules, a daily loop, a prompt template, and the failures they were learned from.">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#faf6ee">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Vibe Coder's Playbook">
+  <meta property="og:description" content="10 rules, a daily loop and a prompt template for building software with AI — tested by hand, not by vibes.">
+  <meta property="og:url" content="https://mukund-buddy.github.io/vibe-coders-playbook/">
+  <meta property="og:image" content="https://mukund-buddy.github.io/vibe-coders-playbook/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Vibe Coder's Playbook">
+  <meta name="twitter:description" content="10 rules, a daily loop and a prompt template for building software with AI.">
+  <link rel="canonical" href="https://mukund-buddy.github.io/vibe-coders-playbook/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%231a1814'/><rect x='18' y='60' width='64' height='16' fill='%23ffd84d'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the playbook</a>
+
+  <header class="masthead">
+    <div class="wrap masthead-in">
+      <span class="mark">The Antigle</span>
+      <span class="issue">Playbook №1 · MIT</span>
+    </div>
+  </header>
+
+  <main class="wrap layout" id="main">
+    <!-- Sticky contents rail -->
+    <nav class="rail" aria-label="Contents">
+      <p class="rail-h">Contents</p>
+      <ol>
+        <li><a href="#who">Who this is for</a></li>
+        <li><a href="#identity">The core identity</a></li>
+        <li><a href="#rules">The 10 rules</a></li>
+        <li><a href="#loop">The daily loop</a></li>
+        <li><a href="#template">Prompt template</a></li>
+        <li><a href="#failures">Common failures</a></li>
+      </ol>
+      <button class="copy-btn" id="copyAll" type="button">Copy the 10 rules</button>
+    </nav>
+
+    <article class="article">
+      <header class="hero">
+        <p class="kicker">A practical operating system for building with AI</p>
+        <h1>The Vibe Coder's Playbook</h1>
+        <p class="standfirst">Written for people who build with AI, test like humans, and refuse to ship garbage. Not theory — every rule here was learned by breaking something real.</p>
+      </header>
+
+      <section id="who" class="sec">
+        <h2>Who this is for</h2>
+        <p>You, if any of these are true:</p>
+        <ul class="ticks">
+          <li>You build things <strong>with AI as a partner</strong> and you're honest about it</li>
+          <li>You can read and edit HTML, JSON and configs, but you're not a "10× systems engineer"</li>
+          <li>You care more about <strong>the product working</strong> than the code being fancy</li>
+          <li>You have watched AI confidently produce something beautiful and completely broken</li>
+        </ul>
+        <p class="pull">Then congrats — you're a vibe coder. This playbook makes you a <em>professional</em> one.</p>
+      </section>
+
+      <section id="identity" class="sec">
+        <h2>The core identity</h2>
+        <p class="equation">Vibe Coder = Director + QA Lead + Refiner</p>
+        <dl class="roles">
+          <dt>Director</dt>
+          <dd>You decide WHAT gets built and what "good" means.</dd>
+          <dt>QA Lead</dt>
+          <dd>You test every flow like a suspicious first-time user.</dd>
+          <dt>Refiner</dt>
+          <dd>You fix wording, spacing and flow until it feels effortless.</dd>
+        </dl>
+        <p>You are <strong>not</strong> a language model's typist. If AI wrote it, you still own it — including its bugs. That's the whole professional mindset in one line.</p>
+      </section>
+
+      <section id="rules" class="sec">
+        <h2>The 10 rules</h2>
+        <ol class="rules" id="rulesList">
+          <li>
+            <h3>Define "done" before you prompt</h3>
+            <p>Write 3–5 bullet acceptance criteria <em>before</em> asking AI to build: "It must go full-width on mobile, clicking downloads a file, console stays clean." If you can't describe done, AI will happily build never-ending.</p>
+          </li>
+          <li>
+            <h3>One feature per prompt</h3>
+            <p>Big prompts create big messes. Build in slices that each end with something you can <strong>open and test</strong>.</p>
+          </li>
+          <li>
+            <h3>Test like a suspicious user</h3>
+            <p>The moment code "runs", your job starts: feed it wrong inputs (empty, huge, weird characters), check it at mobile size, click every button, read the console.</p>
+          </li>
+          <li>
+            <h3>Never ship what you haven't clicked</h3>
+            <p>Untested AI code is a rumor, not a product. <strong>Click it. All of it.</strong></p>
+          </li>
+          <li>
+            <h3>Keep a "known issues" list</h3>
+            <p>Every project gets a <code>KNOWN-ISSUES.md</code>. Honesty compounds; pretending doesn't.</p>
+          </li>
+          <li>
+            <h3>Small fixes, commit fast</h3>
+            <p>One fix = one commit = one clear message. Future-you will send thanks.</p>
+          </li>
+          <li>
+            <h3>When AI spirals, cut your losses</h3>
+            <p>If a fix fails three times, stop. Re-explain the problem from scratch — fresh context beats arguing with a confused model.</p>
+          </li>
+          <li>
+            <h3>Read the diff, not the vibes</h3>
+            <p>Before accepting AI changes, actually <em>look at what changed</em>. Green-checkmark energy is not verification.</p>
+          </li>
+          <li>
+            <h3>Be honest about your stack</h3>
+            <p>"I built this with AI, tested it by hand" is a strength in 2026 — clients and open-source communities value shipping plus judgment. Fake skills collapse in the first technical interview. Real process scales.</p>
+          </li>
+          <li>
+            <h3>Leave it better</h3>
+            <p>Every session: fix one papercut, improve one line of text, delete one dead thing. Small refinements × time = pro-level products.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section id="loop" class="sec">
+        <h2>The loop (daily driver)</h2>
+        <ol class="loop">
+          <li><b>Idea</b> — ask yourself: what problem, and for whom?</li>
+          <li><b>Criteria</b> — 3–5 bullets of "done"</li>
+          <li><b>Prompt</b> — one small, context-rich task</li>
+          <li><b>Test</b> — suspicious-user mode: click everything</li>
+          <li><b>Note</b> — what broke goes into <code>KNOWN-ISSUES.md</code></li>
+          <li><b>Fix</b> — one fix at a time</li>
+          <li><b>Ship</b> — commit + deploy</li>
+          <li><b>Refine</b> — tomorrow's phase one</li>
+        </ol>
+      </section>
+
+      <section id="template" class="sec">
+        <h2>Prompt template that works</h2>
+        <div class="codeblock">
+          <div class="code-head">
+            <span>prompt.txt</span>
+            <button class="copy-btn" id="copyTemplate" type="button">Copy</button>
+          </div>
+<pre id="templateText"><code>Context: This is a [type] that [purpose]. Right now [current state].
+Task: Make only [one specific change].
+Keep in mind: [brand/style constraints].
+Definition of done:
+- [criterion 1]
+- [criterion 2]
+- [criterion 3]
+Also: do not create any new file without telling me.</code></pre>
+        </div>
+      </section>
+
+      <section id="failures" class="sec">
+        <h2>Common failures (all personally witnessed)</h2>
+        <table class="fail-table">
+          <thead><tr><th scope="col">Failure</th><th scope="col">Cure</th></tr></thead>
+          <tbody>
+            <tr><td>"AI said it works"</td><td>It works when <em>you</em> open the browser.</td></tr>
+            <tr><td>Feature soup</td><td>One prompt = one feature.</td></tr>
+            <tr><td>Two competing truths in the code</td><td>Delete the old one. Never keep both.</td></tr>
+            <tr><td>Mobile layout guessed</td><td>DevTools → device toggle → actually look.</td></tr>
+            <tr><td>Beautiful but broken</td><td>Rule #3: suspicious-user test.</td></tr>
+            <tr><td>Shiny-object syndrome</td><td>Zero the known-issues list first, new features after.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="sec toolkit">
+        <h2>The toolkit</h2>
+        <ul>
+          <li><a href="https://github.com/mukund-buddy/site-review-lab">Site Review Lab</a> — 45-item scored website QA checklist</li>
+          <li><a href="https://github.com/mukund-buddy/json-forge">JSON Forge</a> — format, validate and inspect JSON locally</li>
+          <li><a href="https://github.com/mukund-buddy/packforge">PackForge</a> — Minecraft Bedrock manifest checker</li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>MIT — use it, remix it, pass it on. ·
+        <a href="https://github.com/mukund-buddy/vibe-coders-playbook">Source</a> ·
+        Part of <a href="https://github.com/mukund-buddy">The Antigle</a></p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
