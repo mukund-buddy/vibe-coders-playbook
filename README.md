@@ -9,6 +9,8 @@
 > Part of [The Antigle](https://github.com/mukund-buddy) 🔥
 > This is not theory. Every rule here was learned by breaking something real.
 
+Website Preview
+https://mukund-buddy.github.io/vibe-coders-playbook/
 ---
 
 ## 🧭 Who This Is For
